@@ -39,9 +39,10 @@ def convert(input_str: str) -> str:
         else:
             # assume ASCII
             return (
-                f"ASCII: {input_str}\n"
+                f"Decimal: {' '.join(str(ord(c)) for c in input_str)}\n"
                 f"Hex: {' '.join(hex(ord(c))[2:] for c in input_str)}\n"
-                f"Binary: {' '.join(bin(ord(c))[2:].zfill(8) for c in input_str)}"
+                f"Binary: {' '.join(bin(ord(c))[2:].zfill(8) for c in input_str)}\n"
+                f"ASCII: {input_str}"
             )
     except ValueError:
         return "Invalid input format.\n"
