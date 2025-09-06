@@ -1,6 +1,6 @@
 # Hex-Binary-Decimal-ASCII Converter
 
-A minimal Python CLI tool to convert between decimal, binary, hex, and ASCII.
+A minimal Python CLI and GUI tool to convert between decimal, binary, hex, and ASCII.
 
 ## Behind the Scenes
 
@@ -26,7 +26,5 @@ Print results
 
 ## Usage
 
-python converter.py 42 28 Hello
-python converter.py 0x2A (or python converter.py 0x2a)
-python converter.py 0b101010
-python converter.py "Hello" (or python converter.py Hello)
+python gui.py (for gui)
+python cli.py [input] [optional_input] ... (for terminal print)

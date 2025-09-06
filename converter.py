@@ -23,7 +23,7 @@ def to_ascii(number: int) -> str:
     except ValueError:
         return "?"
 
-def convert(input_str):
+def convert(input_str: str) -> str:
 
     # int(input_str, base)
     try:
@@ -38,28 +38,17 @@ def convert(input_str):
             number = int(input_str)
         else:
             # assume ASCII
-            print("ASCII:", input_str)
-            print("Hex:", " ".join(hex(ord(c))[2:] for c in input_str))
-            print("Binary:", " ".join(bin(ord(c))[2:].zfill(8) for c in input_str))
-            return
+            return (
+                f"ASCII: {input_str}\n"
+                f"Hex: {' '.join(hex(ord(c))[2:] for c in input_str)}\n"
+                f"Binary: {' '.join(bin(ord(c))[2:].zfill(8) for c in input_str)}"
+            )
     except ValueError:
-        print("Invalid input format.")
-        return
+        return "Invalid input format.\n"
     
-    print("Decimal:", number)
-    print("Hex:", to_hex(number))
-    print("Binary:", to_binary(number))
-    print("ASCII:", to_ascii(number))
-
-def main():
-    parser = argparse.ArgumentParser(description="Convert between decimal, binary, hex, and ASCII")
-    parser.add_argument("values", nargs="+", help="One or more numbers or strings to convert")
-    args = parser.parse_args()
-
-    for val in args.values:
-        print()
-        convert(val)
-
-    
-if __name__ == "__main__":
-    main()
+    return (
+        f"Decimal: {number}\n"
+        f"Hex: {to_hex(number)}\n"
+        f"Binary: {to_binary(number)}\n"
+        f"ASCII: {to_ascii(number)}"
+    )
