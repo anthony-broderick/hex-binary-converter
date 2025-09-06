@@ -1,5 +1,5 @@
 """
-Parse the input
+Parse the input (can be multiple args separated by spaces).
 
     If it starts with 0x, treat it as hex.
 
@@ -23,13 +23,7 @@ def to_ascii(number: int) -> str:
     except ValueError:
         return "?"
 
-
-def main():
-    parser = argparse.ArgumentParser(description="Convert between decimal, binary, hex, and ASCII")
-    parser.add_argument("number", help="The number or string to convert")
-    args = parser.parse_args()
-
-    input_str = args.number
+def convert(input_str):
 
     # int(input_str, base)
     try:
@@ -57,5 +51,15 @@ def main():
     print("Binary:", to_binary(number))
     print("ASCII:", to_ascii(number))
 
+def main():
+    parser = argparse.ArgumentParser(description="Convert between decimal, binary, hex, and ASCII")
+    parser.add_argument("values", nargs="+", help="One or more numbers or strings to convert")
+    args = parser.parse_args()
+
+    for val in args.values:
+        print()
+        convert(val)
+
+    
 if __name__ == "__main__":
     main()

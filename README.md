@@ -4,7 +4,7 @@ A minimal Python CLI tool to convert between decimal, binary, hex, and ASCII.
 
 ## Behind the Scenes
 
-Parse the input
+Parse the input (can be multiple args separated by spaces).
 
     If it starts with 0x, treat it as hex.
 
@@ -26,8 +26,7 @@ Print results
 
 ## Usage
 
-'''bash
-python converter.py 42
+python converter.py 42 28 Hello
 python converter.py 0x2A (or python converter.py 0x2a)
 python converter.py 0b101010
 python converter.py "Hello" (or python converter.py Hello)
